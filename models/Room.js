@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 const roomSchema = Schema({
   code: String,
+  name: String,
   equipment: String,
   capacity: { type: Number, default: 50 },
   floor: Number,

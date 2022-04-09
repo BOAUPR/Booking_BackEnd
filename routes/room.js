@@ -33,6 +33,7 @@ const getRoomByID = async (req, res, next) => {
 const addRoom = async (req, res, next) => {
   const newRoom = new Room({
     code: req.body.code,
+    name: req.body.name,
     equipment: req.body.equipment,
     capacity: req.body.capacity,
     floor: req.body.floor,
@@ -54,7 +55,9 @@ const updateRoom = async (req, res, next) => {
   try {
     const room = await Room.findById(pId)
     room.code = req.body.code
+    room.name = req.body.name
     room.equipment = req.body.equipment
+    room.floor = req.body.floor
     room.approveres = req.body.approveres
     await room.save()
     return res.status(200).json(room)
