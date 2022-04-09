@@ -28,9 +28,9 @@ async function main () {
   const ApproveUser = new User({ username: 'approver@mail.com', password: 'password', name: 'Jirat', surname: 'Klomkleaw', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionIF })
   const BuildingIF = new Building({ code: 'IF', name: 'Informatics', floor: 11, institution: InstitutionIF })
   const UserIF = new User({ username: 'user@mail.com', password: 'password', name: 'Naphat', surname: 'Tisonthi', roles: [ROLE.USER], institution: InstitutionIF })
-  const room3C01 = new Room({ code: 'IF', name: '3C01', equipment: 'ปรเจคเตอร์, ไมค์, ลำโพง', capacity: 200, floor: 3, building: BuildingIF, approveres: ApproveUser })
-  const room4C01 = new Room({ code: 'IF', name: '4c01', equipment: 'ปรเจคเตอร์, ไมค์, ลำโพง', capacity: 150, floor: 4, building: BuildingIF, approveres: ApproveUser })
-  const room5C01 = new Room({ code: 'IF', name: '5c01', equipment: 'ปรเจคเตอร์, ไมค์, ลำโพง', capacity: 100, floor: 5, building: BuildingIF, approveres: ApproveUser })
+  const room3C01 = new Room({ code: 'IF', name: '3C01', equipment: 'โปรเจคเตอร์, ไมค์, ลำโพง', capacity: 200, floor: 3, building: BuildingIF, approveres: ApproveUser })
+  const room4C01 = new Room({ code: 'IF', name: '4c01', equipment: 'โปรเจคเตอร์, ไมค์, ลำโพง', capacity: 150, floor: 4, building: BuildingIF, approveres: ApproveUser })
+  const room5C01 = new Room({ code: 'IF', name: '5c01', equipment: 'โปรเจคเตอร์, ไมค์, ลำโพง', capacity: 100, floor: 5, building: BuildingIF, approveres: ApproveUser })
   const event1 = new Booking({ transactionDate: new Date('2022-04-09 06:30'), startDate: new Date('2022-04-09 08:00'), endDate: new Date('2022-04-09 16:00'), reason: 'ประชุมการเรียนการสอน', tool: 'โปรเจคเตอร์, ไมค์, ลำโพง', room: room3C01, user: UserIF, approveres: ApproveUser })
 
   user.save()
