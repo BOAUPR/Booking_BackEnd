@@ -11,6 +11,9 @@ mongoose.connect('mongodb://localhost:27017/project')
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/user')
 const authRouter = require('./routes/auth')
+const buildingRouter = require('./routes/building')
+const roomRouter = require('./routes/room')
+const bookingRouter = require('./routes/booking')
 const { authenMiddleware, authorizeMiddleware } = require('./helpers/auth')
 const { ROLE } = require('./constant')
 
@@ -24,6 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/users', authenMiddleware, authorizeMiddleware([ROLE.ADMIN, ROLE.LOCAL_ADMIN]), usersRouter)
+app.use('/building', buildingRouter)
+app.use('/room', roomRouter)
+app.use('/booking', bookingRouter)
 app.use('/auth', authRouter)
 
 module.exports = app
