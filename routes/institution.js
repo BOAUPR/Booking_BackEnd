@@ -19,7 +19,7 @@ const getInstitutionsByID = async (req, res, next) => {
     const user = await Institution.findById(id).exec()
     if (user === null) {
       return res.status(404).send({
-        message: 'User not found'
+        message: 'Institution not found'
       })
     }
     res.json(user)

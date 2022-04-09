@@ -13,8 +13,7 @@ const userSchema = Schema({
     type: [String],
     default: [ROLE.USER]
   },
-  institution: [{ type: Schema.Types.ObjectId, ref: 'Institution', default: [] }]
-  // name: String
+  institution: { type: Schema.Types.ObjectId, ref: 'Institution' }
 })
 
 userSchema.pre('save', function (next) {
