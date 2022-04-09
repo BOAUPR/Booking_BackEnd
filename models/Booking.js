@@ -7,7 +7,7 @@ const eventSchema = Schema({
   endDate: Date,
   reason: String,
   tool: String,
-  status: { String, default: '0' },
+  status: { type: String, default: '0' },
   order: { type: Number, default: 1 },
   room: { type: Schema.Types.ObjectId, ref: 'Room' },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
