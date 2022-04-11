@@ -7,7 +7,7 @@ const ROLE = {
 
 const INSTITUTION = {
   IF: 'วิทยาการสารสนเทศ',
-  BS: 'วิทยาศาสตร์การแพทย์'
+  MS: 'วิทยาศาสตร์การแพทย์'
 }
 
 module.exports = {

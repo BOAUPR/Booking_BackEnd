@@ -14,7 +14,7 @@ const authRouter = require('./routes/auth')
 const buildingRouter = require('./routes/building')
 const roomRouter = require('./routes/room')
 const bookingRouter = require('./routes/booking')
-const institutionRouter = require('./models/Institution')
+const institutionRouter = require('./routes/institution')
 const { authenMiddleware, authorizeMiddleware } = require('./helpers/auth')
 const { ROLE } = require('./constant')
 
