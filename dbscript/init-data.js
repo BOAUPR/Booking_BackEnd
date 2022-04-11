@@ -18,7 +18,6 @@ async function main () {
   await clearUser()
   // for (let i = 1; i < 12; i++) {
   const InstitutionIF = new Institution({ name: INSTITUTION.IF })
-  const InstitutionBS = new Institution({ name: INSTITUTION.BS })
   const user = new User({ username: 'user@mail.com', password: 'password', name: 'Naphat', surname: 'Tisonthi', roles: [ROLE.USER], institution: InstitutionIF })
   const approver = new User({ username: 'approver@mail.com', password: 'password', name: 'Jirat', surname: 'Klomkleaw', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionIF })
   const approver2 = new User({ username: 'approver2@mail.com', password: 'password', name: 'Puchong', surname: 'Sumalanukun', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionIF })
@@ -48,7 +47,6 @@ async function main () {
   BuildingIF.rooms.push(room4C01)
   BuildingIF.rooms.push(room5C01)
   InstitutionIF.save()
-  InstitutionBS.save()
   BuildingIF.save()
   ApproveUser1.save()
   ApproveUser2.save()
@@ -57,6 +55,33 @@ async function main () {
   await room3C01.save()
   await room4C01.save()
   await room5C01.save()
+
+  // BuildingMs
+  const InstitutionMS = new Institution({ name: INSTITUTION.MS })
+  const approver3 = new User({ username: 'approver@mail.com', password: 'password', name: 'Jakkarin', surname: 'Suksawaschon', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionIF })
+  const approver4 = new User({ username: 'approver2@mail.com', password: 'password', name: 'Pichet', surname: 'Wayalun', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionIF })
+
+  const BuildingMS = new Building({ code: 'MS', name: 'MedicalScience', floor: 7, institution: InstitutionMS })
+  const ApproveUser3 = new User({ username: 'approver@mail.com', password: 'password', name: 'Jakkarin', surname: 'Suksawaschon', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionMS })
+  const ApproveUser4 = new User({ username: 'approver2@mail.com', password: 'password', name: 'Pichet', surname: 'Wayalun', roles: [ROLE.APPROVER, ROLE.USER], institution: InstitutionMS })
+  const room103 = new Room({ code: 'MS', name: '103', equipment: 'Presenter+TV+OHP+Tape', capacity: 60, floor: 1, building: BuildingMS, approveres: [ApproveUser3, ApproveUser4] })
+  const room107 = new Room({ code: 'MS', name: '107', equipment: 'Presenter+TV+OHP+Tape', capacity: 32, floor: 1, building: BuildingMS, approveres: [ApproveUser3, ApproveUser4] })
+  const room202 = new Room({ code: 'MS', name: '202', equipment: 'Presenter+TV+OHP+Tape', capacity: 98, floor: 2, building: BuildingMS, approveres: [ApproveUser3, ApproveUser4] })
+
+  approver3.save()
+  approver4.save()
+  InstitutionMS.save()
+  InstitutionIF.users.push(approver3)
+  InstitutionIF.users.push(approver4)
+  BuildingMS.rooms.push(room103)
+  BuildingMS.rooms.push(room107)
+  BuildingMS.rooms.push(room202)
+  BuildingMS.save()
+  ApproveUser3.save()
+  ApproveUser4.save()
+  await room103.save()
+  await room107.save()
+  await room202.save()
 
   // }
 }
