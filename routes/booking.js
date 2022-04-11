@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
     const booking = await Booking.find({
       $or: [{ startDate: { $gte: startDate, $lt: endDate } },
         { endDate: { $gte: startDate, $lt: endDate } }]
-    }).exec()
+    }).populate('room').populate('user').populate('approveres').exec()
     res.status(200).json(booking)
   } catch (err) {
     return res.status(500).send({

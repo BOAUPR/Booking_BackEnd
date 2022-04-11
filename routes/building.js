@@ -4,7 +4,7 @@ const Building = require('../models/Building')
 
 const getAll = async (req, res, next) => {
   try {
-    const building = await Building.find({}).exec()
+    const building = await Building.find({}).populate('institution').populate('rooms').exec()
     res.status(200).json(building)
   } catch (err) {
     return res.status(500).send({

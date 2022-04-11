@@ -4,7 +4,7 @@ const User = require('../models/User')
 
 const getAll = async (req, res, next) => {
   try {
-    const users = await User.find({}).exec()
+    const users = await User.find({}).populate('institution').exec()
     res.status(200).json(users)
   } catch (err) {
     return res.status(500).send({
