@@ -6,7 +6,7 @@ const buildSchema = Schema({
   name: { type: String },
   floor: Number,
   rooms: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }],
-  institution: { type: Schema.Types.ObjectId, ref: 'Institution', default: {} }
+  institution: { type: Schema.Types.ObjectId, ref: 'Institution' }
 })
 
 module.exports = mongoose.model('Building', buildSchema)
