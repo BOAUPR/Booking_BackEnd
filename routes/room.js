@@ -30,6 +30,23 @@ const getRoomByID = async (req, res, next) => {
   }
 }
 
+const getRoomByBuilding = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const room = await Room.find({ building: id }).exec()
+    if (room === null) {
+      return res.status(404).send({
+        message: 'Room not found'
+      })
+    }
+    res.json(room)
+  } catch (err) {
+    return res.status(404).send({
+      message: err.message
+    })
+  }
+}
+
 const addRoom = async (req, res, next) => {
   const newRoom = new Room({
     code: req.body.code,
@@ -82,6 +99,7 @@ const deleteRoom = async (req, res, next) => {
 
 router.get('/', getAll)
 router.get('/:id', getRoomByID)
+router.get('/building/:id', getRoomByBuilding)
 router.post('/', addRoom)
 router.put('/:id', updateRoom)
 router.delete('/:id', deleteRoom)
