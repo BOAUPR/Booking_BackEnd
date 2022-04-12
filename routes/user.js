@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
+const { ROLE } = require('../constant.js')
 
 const getAll = async (req, res, next) => {
   try {
@@ -8,6 +9,22 @@ const getAll = async (req, res, next) => {
     res.status(200).json(users)
   } catch (err) {
     return res.status(500).send({
+      message: err.message
+    })
+  }
+}
+
+const getApproveres = async (req, res, next) => {
+  try {
+    const approveres = await User.find({ roles: ROLE.APPROVER }).populate('institution').exec()
+    if (approveres === null) {
+      return res.status(404).send({
+        message: 'Approveres not found'
+      })
+    }
+    res.json(approveres)
+  } catch (err) {
+    return res.status(404).send({
       message: err.message
     })
   }
@@ -79,7 +96,7 @@ const deleteUser = async (req, res, next) => {
     })
   }
 }
-
+router.get('/approveres', getApproveres)
 router.get('/', getAll)
 router.get('/:id', getUserByID)
 router.post('/', addUser)
