@@ -16,7 +16,7 @@ const getAll = async (req, res, next) => {
 const getRoomByID = async (req, res, next) => {
   const id = req.params.id
   try {
-    const room = await Room.findById(id).exec()
+    const room = await Room.findById(id).populate('building').exec()
     if (room === null) {
       return res.status(404).send({
         message: 'Room not found'
