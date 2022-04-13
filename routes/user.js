@@ -30,6 +30,23 @@ const getApproveres = async (req, res, next) => {
   }
 }
 
+const getApproveresByID = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const approveres = await User.find({ roles: ROLE.APPROVER, institution: id }).populate('institution').exec()
+    if (approveres === null) {
+      return res.status(404).send({
+        message: 'Approveres not found'
+      })
+    }
+    res.json(approveres)
+  } catch (err) {
+    return res.status(404).send({
+      message: err.message
+    })
+  }
+}
+
 const getUserByID = async (req, res, next) => {
   const id = req.params.id
   try {
@@ -97,6 +114,7 @@ const deleteUser = async (req, res, next) => {
   }
 }
 router.get('/approveres', getApproveres)
+router.get('/approveres/:id', getApproveresByID)
 router.get('/', getAll)
 router.get('/:id', getUserByID)
 router.post('/', addUser)
