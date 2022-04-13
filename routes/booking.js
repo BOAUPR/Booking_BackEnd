@@ -30,7 +30,32 @@ const getBookingByUser = async (req, res, next) => {
   }
 }
 
+const addBooking = async (req, res, next) => {
+  const newBooking = new Booking({
+    transactionDate: req.body.transactionDate,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    reason: req.body.reason,
+    tool: req.body.tool,
+    status: req.body.status,
+    order: req.body.order,
+    room: req.body.room,
+    user: req.body.user,
+    approvers: req.body.approvers
+  })
+
+  try {
+    await newBooking.save()
+    res.status(201).json(newBooking)
+  } catch (err) {
+    return res.status(500).send({
+      message: err.message
+    })
+  }
+}
+
 router.get('/', getByDate)
 router.get('/users/:id', getBookingByUser)
+router.post('/', addBooking)
 
 module.exports = router
