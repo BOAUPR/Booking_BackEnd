@@ -41,7 +41,7 @@ const addBooking = async (req, res, next) => {
     order: req.body.order,
     room: req.body.room,
     user: req.body.user,
-    approvers: req.body.approvers
+    approveres: req.body.approveres
   })
 
   try {
