@@ -11,7 +11,7 @@ const eventSchema = Schema({
   order: { type: Number, default: 1 },
   room: { type: Schema.Types.ObjectId, ref: 'Room' },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  approveres: [{ type: Schema.Types.ObjectId, ref: 'User', default: [] }]
+  approveres: [{ type: Schema.Types.ObjectId, ref: 'Approver', default: [] }]
 }, {
   timestamps: true
 })
