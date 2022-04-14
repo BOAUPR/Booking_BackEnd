@@ -13,6 +13,41 @@ const getAllWaiting = async (req, res, next) => {
   }
 }
 
+const getBookingByID = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const booking = await Booking.findById(id).exec()
+    res.status(200).json(booking)
+  } catch (e) {
+    return res.status(500).send({
+      message: e.message
+    })
+  }
+}
+
+const updateStatus = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const booking = await Booking.findById(id).exec()
+    booking.transactionDate = req.body.transactionDate
+    booking.startDate = req.body.startDate
+    booking.endDate = req.body.endDate
+    booking.reason = req.body.reason
+    booking.tool = req.body.tool
+    booking.status = req.body.status
+    booking.order = req.body.order
+    booking.room = req.body.room
+    booking.user = req.body.user
+    booking.approveres = req.body.approveres
+    await booking.save()
+    res.status(200).json(booking)
+  } catch (e) {
+    return res.status(500).send({
+      message: e.message
+    })
+  }
+}
+
 const getByDate = async (req, res, next) => {
   try {
     const startDate = req.query.startDate
@@ -77,6 +112,8 @@ const deleteBooking = async (req, res, next) => {
   }
 }
 
+router.get('/:id', getBookingByID)
+router.put('/:id', updateStatus)
 router.get('/getall', getAllWaiting)
 router.get('/', getByDate)
 router.get('/users/:id', getBookingByUser)

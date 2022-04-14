@@ -18,7 +18,7 @@ const addApprover = async (req, res, next) => {
   const newApprover = new Approver({
     user: req.body.user,
     status: req.body.status,
-    booking: req.body.boooking
+    booking: req.body.booking
   })
   try {
     await newApprover.save()
@@ -35,6 +35,7 @@ const updateStatus = async (req, res, next) => {
   try {
     const approver = await Approver.findById(pId)
     approver.status = req.body.status
+    approver.user = req.body.user
     approver.booking = req.body.booking
     await approver.save()
     return res.status(200).json(approver)
