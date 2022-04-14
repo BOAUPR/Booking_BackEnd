@@ -62,6 +62,7 @@ async function main () {
   const room202 = new Room({ code: 'MS', name: '202', equipment: 'Presenter+TV+OHP+Tape', capacity: 98, floor: 2, building: BuildingMS, approveres: [approver3, approver4] })
   const event2 = new Booking({ transactionDate: new Date('2022-04-02 08:30'), startDate: new Date('2022-04-02 15:00'), endDate: new Date('2022-04-12 20:00'), reason: 'ติวหนังสือก่อนสอบ', tool: 'Presenter+TV+OHP+Tape', room: room107, user: user1, approveres: [approver3, approver4] })
 
+  user1.save()
   approver3.save()
   approver4.save()
   InstitutionMS.save()

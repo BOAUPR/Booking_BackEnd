@@ -2,6 +2,17 @@ const express = require('express')
 const router = express.Router()
 const Booking = require('../models/Booking')
 
+const getAllWaiting = async (req, res, next) => {
+  try {
+    const booking = await Booking.find({ status: '0' }).populate('room').populate('user').populate('approveres').exec()
+    res.status(200).json(booking)
+  } catch (e) {
+    return res.status(500).send({
+      message: e.message
+    })
+  }
+}
+
 const getByDate = async (req, res, next) => {
   try {
     const startDate = req.query.startDate
@@ -66,6 +77,7 @@ const deleteBooking = async (req, res, next) => {
   }
 }
 
+router.get('/getall', getAllWaiting)
 router.get('/', getByDate)
 router.get('/users/:id', getBookingByUser)
 router.post('/', addBooking)
