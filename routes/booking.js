@@ -54,8 +54,21 @@ const addBooking = async (req, res, next) => {
   }
 }
 
+const deleteBooking = async (req, res, next) => {
+  const pId = req.params.id
+  try {
+    await Booking.findByIdAndDelete(pId)
+    return res.status(200).send()
+  } catch (err) {
+    return res.status(404).send({
+      message: err.message
+    })
+  }
+}
+
 router.get('/', getByDate)
 router.get('/users/:id', getBookingByUser)
 router.post('/', addBooking)
+router.delete('/:id', deleteBooking)
 
 module.exports = router
