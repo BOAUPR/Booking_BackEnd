@@ -112,7 +112,7 @@ const deleteBooking = async (req, res, next) => {
   }
 }
 
-router.get('/:id', getBookingByID)
+router.get('/Idbooking/:id', getBookingByID)
 router.put('/:id', updateStatus)
 router.get('/getall', getAllWaiting)
 router.get('/', getByDate)
