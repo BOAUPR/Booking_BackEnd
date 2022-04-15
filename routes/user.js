@@ -97,7 +97,24 @@ const updateUser = async (req, res, next) => {
     return res.status(200).json(user)
   } catch (err) {
     return res.status(404).send({
-      message: err.message
+      message: 'Unable to update ' + pId + ' No object'
+    })
+  }
+}
+
+const updatepatchUser = async (req, res, next) => {
+  const pId = req.params.id
+  try {
+    const user = await User.findById(pId)
+    user.name = req.body.name
+    user.surname = req.body.surname
+    user.roles = req.body.roles
+    user.institution = req.body.institution
+    await user.save()
+    return res.status(200).json(user)
+  } catch (err) {
+    return res.status(404).send({
+      message: 'Unable to update ' + pId + ' No object'
     })
   }
 }
@@ -119,6 +136,7 @@ router.get('/', getAll)
 router.get('/:id', getUserByID)
 router.post('/', addUser)
 router.put('/:id', updateUser)
+router.patch('/:id', updatepatchUser)
 router.delete('/:id', deleteUser)
 
 module.exports = router
