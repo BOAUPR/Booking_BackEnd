@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const { Schema } = mongoose
 const institutionSchema = Schema({
-  name: String,
+  name: { type: String, unique: true },
   users: [{ type: Schema.Types.ObjectId, ref: 'User', default: [] }]
 })
 

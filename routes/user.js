@@ -77,7 +77,7 @@ const addUser = async (req, res, next) => {
     await newUser.save()
     res.status(201).json(newUser)
   } catch (err) {
-    return res.status(500).send({
+    return res.status(409).send({
       message: err.message
     })
   }

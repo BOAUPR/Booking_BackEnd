@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 const userSchema = Schema({
-  username: String,
+  username: { type: String, unique: true },
   password: String,
   name: String,
   surname: String,

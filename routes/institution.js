@@ -39,7 +39,7 @@ const addInstitution = async (req, res, next) => {
     await newInstitution.save()
     res.status(201).json(newInstitution)
   } catch (err) {
-    return res.status(500).send({
+    return res.status(409).send({
       message: err.message
     })
   }
@@ -55,7 +55,7 @@ const updateInstitution = async (req, res, next) => {
     return res.status(200).json(institution)
   } catch (err) {
     return res.status(404).send({
-      message: err.message
+      message: 'Unable to update ' + pId + ' No object'
     })
   }
 }
