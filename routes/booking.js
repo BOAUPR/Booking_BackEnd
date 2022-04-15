@@ -86,7 +86,7 @@ const addBooking = async (req, res, next) => {
   }).exec()
   if (booking.length !== 0) {
     return res.status(202).send({
-      message: 'ไม่สามารถจองได้'
+      message: 'จองไม่ได้'
     })
   }
   const newBooking = new Booking({
