@@ -77,6 +77,18 @@ const getBookingByUser = async (req, res, next) => {
 }
 
 const addBooking = async (req, res, next) => {
+  const startDate = req.body.startDate
+  const endDate = req.body.endDate
+  const room = req.body.room
+  const booking = await Booking.find({
+    $or: [{ startDate: { $gte: startDate, $lt: endDate } },
+      { endDate: { $gte: startDate, $lt: endDate }, room: room }]
+  }).exec()
+  if (booking.length !== 0) {
+    return res.status(202).send({
+      message: 'ไม่สามารถจองได้'
+    })
+  }
   const newBooking = new Booking({
     transactionDate: req.body.transactionDate,
     startDate: req.body.startDate,
