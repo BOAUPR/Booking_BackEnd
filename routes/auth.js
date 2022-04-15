@@ -33,7 +33,7 @@ router.post('/login', async (req, res, next) => {
     // delete user.password
     const token = generateAccessToken({ _id: user._id, username: user.username })
     console.log(token)
-    res.json({ user: { _id: user._id, username: user.username, roles: user.roles }, token: token })
+    res.json({ user: { _id: user._id, username: user.username, roles: user.roles, name: user.name, surname: user.surname }, token: token })
   } catch (err) {
     return res.status(404).send({
       message: err.message

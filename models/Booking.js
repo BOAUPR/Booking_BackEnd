@@ -8,7 +8,6 @@ const eventSchema = Schema({
   reason: String,
   tool: String,
   status: { type: String, default: '0' },
-  order: { type: Number, default: 1 },
   room: { type: Schema.Types.ObjectId, ref: 'Room' },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   approveres: [{ type: Schema.Types.ObjectId, ref: 'Approver', default: [] }]
