@@ -84,10 +84,14 @@ const addBooking = async (req, res, next) => {
     $or: [{ startDate: { $gte: startDate, $lt: endDate } },
       { endDate: { $gte: startDate, $lt: endDate }, room: room }]
   }).exec()
+  const roomb = await Booking.find({ room: room }).exec()
+
   if (booking.length !== 0) {
-    return res.status(202).send({
-      message: 'จองไม่ได้'
-    })
+    if (roomb.length !== 0) {
+      return res.status(202).send({
+        message: 'จองไม่ได้'
+      })
+    }
   }
   const newBooking = new Booking({
     transactionDate: req.body.transactionDate,

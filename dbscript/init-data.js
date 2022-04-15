@@ -24,7 +24,7 @@ async function main () {
   const user2 = new User({ username: 'book@mail.com', password: 'password', name: 'Jirat', surname: 'Klomkleaw', roles: [ROLE.USER], institution: InstitutionIF })
   const user3 = new User({ username: 'sumo@mail.com', password: 'password', name: 'Chenpob', surname: 'Nopakiat', roles: [ROLE.USER], institution: InstitutionIF })
   const admin1 = new User({ username: 'admin1@mail.com', password: 'password', name: 'Worawit', surname: 'Werapan', roles: [ROLE.ADMIN], institution: InstitutionIF })
-  const localadmin1 = new User({ username: 'local admin1@mail.com', password: 'password', name: 'Kansiree', surname: 'Intarapapong', roles: [ROLE.LOCAL_ADMIN], institution: InstitutionIF })
+  const localadmin1 = new User({ username: 'localadmin1@mail.com', password: 'password', name: 'Kansiree', surname: 'Intarapapong', roles: [ROLE.LOCAL_ADMIN], institution: InstitutionIF })
   const approver1 = new User({ username: 'approver1@mail.com', password: 'password', name: 'Pichet', surname: 'Wayalun', roles: [ROLE.APPROVER], institution: InstitutionIF })
   const approver2 = new User({ username: 'approver2@mail.com', password: 'password', name: 'Tidarat', surname: 'Pawapattarakul', roles: [ROLE.APPROVER], institution: InstitutionIF })
 
