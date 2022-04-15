@@ -128,6 +128,25 @@ const deleteBooking = async (req, res, next) => {
   }
 }
 
+const getBookingbyRoom = async (req, res, next) => {
+  try {
+    const room = req.params.id
+    const startDate = req.query.startDate
+    const endDate = req.query.endDate
+
+    const booking = await Booking.find({
+      $or: [{ startDate: { $gte: startDate, $lt: endDate } }, { endDate: { $gte: startDate, $lt: endDate } }], room: room
+    }).populate('room').populate('user').populate('approveres').exec()
+
+    res.status(200).json(booking)
+  } catch (err) {
+    return res.status(500).send({
+      message: err.message
+    })
+  }
+}
+
+router.get('/room/:id', getBookingbyRoom)
 router.get('/Idbooking/:id', getBookingByID)
 router.put('/:id', updateStatus)
 router.get('/getall', getAllWaiting)
