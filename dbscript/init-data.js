@@ -95,7 +95,7 @@ async function main () {
   const room202 = new Room({ code: 'MS', name: '202', equipment: 'Presenter+TV+OHP+Tape', capacity: 98, floor: 2, building: BuildingMS, approveres: [approver3, approver4] })
   const room203 = new Room({ code: 'MS', name: '203', equipment: 'Presenter+TV+OHP+Tape', capacity: 80, floor: 2, building: BuildingMS, approveres: [approver3, approver4] })
   const room603 = new Room({ code: 'MS', name: '603', equipment: 'Lab', capacity: 40, floor: 6, building: BuildingMS, approveres: [approver3, approver4] })
-  const event3 = new Booking({ transactionDate: new Date('2022-04-11 08:30'), startDate: new Date('2022-04-12 15:00'), endDate: new Date('2022-04-12 20:00'), reason: 'ติวหนังสือก่อนสอบ', tool: 'Presenter+TV+OHP+Tape', room: room107, user: user1 })
+  const event3 = new Booking({ transactionDate: new Date('2022-04-11 08:30'), startDate: new Date('2022-04-12 15:00'), endDate: new Date('2022-04-12 20:00'), reason: 'ติวหนังสือก่อนสอบ', tool: 'Presenter+TV+OHP+Tape', room: room107, user: user4 })
   const Approver3 = new Approver({ user: approver3 })
   const Approver4 = new Approver({ user: approver4 })
 
