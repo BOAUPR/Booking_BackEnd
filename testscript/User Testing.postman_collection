@@ -1,0 +1,2121 @@
+{
+	"info": {
+		"_postman_id": "b38d8524-49b6-4499-819c-26a99aefafc5",
+		"name": "User Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth login",
+			"item": [
+				{
+					"name": "auth/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin1@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5ODQ4Yzk0NGU1YTQwMGQ1ZDEyZTQiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAzNzkwOCwiZXhwIjoxNjUwMTI0MzA4fQ.3yRRIaHR3AJBxmzU78sHeFGdCyXxQQEQwvwlG_MDASc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/approveres",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxOTA5NiwiZXhwIjoxNjUwMTA1NDk2fQ.f2YIs99ZoH8fjOb9oaqU4xGgOCE4070ywjJ6Cf4CsSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/users/approveres",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"approveres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/approveres/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxOTA5NiwiZXhwIjoxNjUwMTA1NDk2fQ.f2YIs99ZoH8fjOb9oaqU4xGgOCE4070ywjJ6Cf4CsSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/users/approveres/62594751edbec1e62add86fc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"approveres",
+								"62594751edbec1e62add86fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxODY1MCwiZXhwIjoxNjUwMTA1MDUwfQ.__gprFSYTAZBmymp2pzt3av-OQTY61Tr6Pp_GPpNx78\"",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/users/625937f70694ac82da01ccce",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"625937f70694ac82da01ccce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", function() {\r",
+									"    pm.response.to.have.status(201)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxOTA5NiwiZXhwIjoxNjUwMTA1NDk2fQ.f2YIs99ZoH8fjOb9oaqU4xGgOCE4070ywjJ6Cf4CsSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "prem@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prem",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Werapan",
+									"type": "text"
+								},
+								{
+									"key": "roles[]",
+									"value": "USER",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "62594750edbec1e62add86c2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users Duplicate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 409\", function() {\r",
+									"    pm.response.to.have.status(409)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxOTA5NiwiZXhwIjoxNjUwMTA1NDk2fQ.f2YIs99ZoH8fjOb9oaqU4xGgOCE4070ywjJ6Cf4CsSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "prem@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prem",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Werapan",
+									"type": "text"
+								},
+								{
+									"key": "roles[]",
+									"value": "USER",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "62594750edbec1e62add86c2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5ODQ4Yzk0NGU1YTQwMGQ1ZDEyZTQiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAzNzkwOCwiZXhwIjoxNjUwMTI0MzA4fQ.3yRRIaHR3AJBxmzU78sHeFGdCyXxQQEQwvwlG_MDASc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "phai@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prems",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Klomkleaws",
+									"type": "text"
+								},
+								{
+									"key": "roles[]",
+									"value": "USER",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "625937f70694ac82da01ccc9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/6259848c944e5a400d5d12e1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6259848c944e5a400d5d12e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5ODQ4Yzk0NGU1YTQwMGQ1ZDEyZTQiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAzNzkwOCwiZXhwIjoxNjUwMTI0MzA4fQ.3yRRIaHR3AJBxmzU78sHeFGdCyXxQQEQwvwlG_MDASc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "phai@mail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Phai",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Klomkleaws",
+									"type": "text"
+								},
+								{
+									"key": "roles[]",
+									"value": "USER",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "625937f70694ac82da01ccc9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/6259848c944e5a400d5d12e1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6259848c944e5a400d5d12e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxOTA5NiwiZXhwIjoxNjUwMTA1NDk2fQ.f2YIs99ZoH8fjOb9oaqU4xGgOCE4070ywjJ6Cf4CsSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/users/62597657e9e4c29d62dc0c2a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62597657e9e4c29d62dc0c2a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id no object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 404\", function() {\r",
+									"    pm.response.to.have.status(404)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5ODQ4Yzk0NGU1YTQwMGQ1ZDEyZTQiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAzNzkwOCwiZXhwIjoxNjUwMTI0MzA4fQ.3yRRIaHR3AJBxmzU78sHeFGdCyXxQQEQwvwlG_MDASc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "phai@mail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Prems",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Klomkleaws",
+									"type": "text"
+								},
+								{
+									"key": "roles[]",
+									"value": "USER",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "625937f70694ac82da01ccc9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/6259848c944e5a400d5d12e1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6259848c944e5a400d5d12e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id no object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 404\", function() {\r",
+									"    pm.response.to.have.status(404)\r",
+									"})  \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5ODQ4Yzk0NGU1YTQwMGQ1ZDEyZTQiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAzNzkwOCwiZXhwIjoxNjUwMTI0MzA4fQ.3yRRIaHR3AJBxmzU78sHeFGdCyXxQQEQwvwlG_MDASc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "phai@mail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Prems",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Klomkleaws",
+									"type": "text"
+								},
+								{
+									"key": "roles[]",
+									"value": "USER",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "625937f70694ac82da01ccc9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/6259848c944e5a400d5d12e1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6259848c944e5a400d5d12e1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Building",
+			"item": [
+				{
+					"name": "/building",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/building",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"building"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/build/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const buildingId = pm.environment.get(\"buildingId\")\r",
+									"\r",
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Result id equal \" + buildingId, function() {\r",
+									"    let jsonData = pm.response.json()\r",
+									"    pm.expect(jsonData._id).to.eql(buildingId)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/building/62594750edbec1e62add86ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"building",
+								"62594750edbec1e62add86ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/building/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", function() {\r",
+									"    pm.response.to.have.status(201)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "IF",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Informatics",
+									"type": "text"
+								},
+								{
+									"key": "floor",
+									"value": "11",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/building/62594750edbec1e62add86ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"building",
+								"62594750edbec1e62add86ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/building/:id no object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 404\", function() {\r",
+									"    pm.response.to.have.status(404)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "IF",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Informatics",
+									"type": "text"
+								},
+								{
+									"key": "floor",
+									"value": "11",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/building/62594750edbec1e62add86ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"building",
+								"62594750edbec1e62add86ca"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "/room",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/room",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/room/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const roomId = pm.environment.get(\"roomId\")\r",
+									"\r",
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Result id equal \" + roomId, function() {\r",
+									"    let jsonData = pm.response.json()\r",
+									"    pm.expect(jsonData._id).to.eql(roomId)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/room/{{roomId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room",
+								"{{roomId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/room/building/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/room/building/62594750edbec1e62add86ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room",
+								"building",
+								"62594750edbec1e62add86ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/room",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", function() {\r",
+									"    pm.response.to.have.status(201)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "IF",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "6C01",
+									"type": "text"
+								},
+								{
+									"key": "equipment",
+									"value": "โปรเจคเตอร์, ไมค์, ลำโพง",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "floor",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "building",
+									"value": "62594750edbec1e62add86ca",
+									"type": "text"
+								},
+								{
+									"key": "approveres",
+									"value": "62594750edbec1e62add86d5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/room",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/room/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "IFS",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "6C02",
+									"type": "text"
+								},
+								{
+									"key": "equipment",
+									"value": "โปรเจคเตอร์, ไมค์, ลำโพง",
+									"type": "text"
+								},
+								{
+									"key": "floor",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/room/625957048d5803b917f18dca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room",
+								"625957048d5803b917f18dca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/room/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/room/625957048d5803b917f18dca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room",
+								"625957048d5803b917f18dca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/room/:id no object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 404\", function() {\r",
+									"    pm.response.to.have.status(404)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "IFS",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "6C02",
+									"type": "text"
+								},
+								{
+									"key": "equipment",
+									"value": "โปรเจคเตอร์, ไมค์, ลำโพง",
+									"type": "text"
+								},
+								{
+									"key": "floor",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/room/625957048d5803b917f18dca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"room",
+								"625957048d5803b917f18dca"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "/booking/getall",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/booking/getall",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/booking by date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/booking?startDate=2022-04-01 00:00&endDate=2022-04-11 23:59",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2022-04-01 00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-04-11 23:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/booking/users/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking/users/62594750edbec1e62add86c3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"users",
+								"62594750edbec1e62add86c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/booking/Idbooking/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking/Idbooking/62594751edbec1e62add8709",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"Idbooking",
+								"62594751edbec1e62add8709"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", function() {\r",
+									"    pm.response.to.have.status(201)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "transactionDate",
+									"value": "2022-04-14",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2022-04-16",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-04-16",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "ประชุมฝ่ายพยาบาล",
+									"type": "text"
+								},
+								{
+									"key": "tool",
+									"value": "Presenter+TV+OHP+Tape",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "62594750edbec1e62add86d1",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "62594750edbec1e62add86c5",
+									"type": "text"
+								},
+								{
+									"key": "approveres[]",
+									"value": "62594751edbec1e62add870a",
+									"type": "text"
+								},
+								{
+									"key": "approveres[]",
+									"value": "62594751edbec1e62add870b",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/booking",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/booking/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "transactionDate",
+									"value": "2022-04-14",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2022-04-16",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-04-16",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "ประชุมฝ่ายสโมสร",
+									"type": "text"
+								},
+								{
+									"key": "tool",
+									"value": "Presenter+TV+OHP",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "62594750edbec1e62add86d1",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "62594750edbec1e62add86c4",
+									"type": "text"
+								},
+								{
+									"key": "approveres[]",
+									"value": "62594751edbec1e62add870a",
+									"type": "text"
+								},
+								{
+									"key": "approveres[]",
+									"value": "62594751edbec1e62add870b",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/booking/625963f46aabc4f28c84d53c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"625963f46aabc4f28c84d53c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/booking/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking/625963f46aabc4f28c84d53c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"625963f46aabc4f28c84d53c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Institution",
+			"item": [
+				{
+					"name": "/institution",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/institution",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/institution/62594750edbec1e62add86c2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution",
+								"62594750edbec1e62add86c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", function() {\r",
+									"    pm.response.to.have.status(201)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "คณะแพทย์",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/institution",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution Duplicate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 409\", function() {\r",
+									"    pm.response.to.have.status(409)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "คณะแพทย์",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/institution",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "คณะแพทย์แผนไทย",
+									"type": "text"
+								},
+								{
+									"key": "users",
+									"value": "62594750edbec1e62add86c4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/institution/62597b20d4ea965b902e6654",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution",
+								"62597b20d4ea965b902e6654"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/institution/62597b20d4ea965b902e6654",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution",
+								"62597b20d4ea965b902e6654"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution/:id on object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 404\", function() {\r",
+									"    pm.response.to.have.status(404)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "คณะแพทย์แผนโบราณ",
+									"type": "text"
+								},
+								{
+									"key": "users",
+									"value": "62594750edbec1e62add86c4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/institution/62597b20d4ea965b902e6654",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution",
+								"62597b20d4ea965b902e6654"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Approver",
+			"item": [
+				{
+					"name": "/approver/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/approver/6259848c944e5a400d5d12f1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"approver",
+								"6259848c944e5a400d5d12f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/approver",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", function() {\r",
+									"    pm.response.to.have.status(201)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "6259848c944e5a400d5d12e6",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "booking",
+									"value": "6259848c944e5a400d5d12f1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/approver",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"approver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/approver/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "users",
+									"value": "6259848c944e5a400d5d12e6",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "booking",
+									"value": "6259848c944e5a400d5d12f1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/approver/6259854ac7ea79478243d1f5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"approver",
+								"6259854ac7ea79478243d1f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/approver/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/approver/6259854ac7ea79478243d1f5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"approver",
+								"6259854ac7ea79478243d1f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/approver/:id no object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 404\", function() {\r",
+									"    pm.response.to.have.status(404)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "users",
+									"value": "6259848c944e5a400d5d12e6",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "booking",
+									"value": "6259848c944e5a400d5d12f1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/approver/6259854ac7ea79478243d1f5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"approver",
+								"6259854ac7ea79478243d1f5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
