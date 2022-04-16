@@ -41,7 +41,7 @@ const updateStatus = async (req, res, next) => {
     return res.status(200).json(approver)
   } catch (err) {
     return res.status(404).send({
-      message: err.message
+      message: 'Unable to update ' + pId + ' No object'
     })
   }
 }
