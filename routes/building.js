@@ -58,7 +58,7 @@ const updateBuilding = async (req, res, next) => {
     return res.status(200).json(building)
   } catch (err) {
     return res.status(404).send({
-      message: err.message
+      message: 'Unable to update ' + pId + ' No object'
     })
   }
 }
