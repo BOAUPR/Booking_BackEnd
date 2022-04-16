@@ -80,7 +80,7 @@ const updateRoom = async (req, res, next) => {
     return res.status(200).json(room)
   } catch (err) {
     return res.status(404).send({
-      message: err.message
+      message: 'Unable to update ' + pId + ' No object'
     })
   }
 }
