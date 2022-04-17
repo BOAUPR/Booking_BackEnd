@@ -30,6 +30,23 @@ const getInstitutionsByID = async (req, res, next) => {
   }
 }
 
+const getInstitutionsByNamne = async (req, res, next) => {
+  const name = req.params.id
+  try {
+    const user = await Institution.find({ name: name }).exec()
+    if (user === null) {
+      return res.status(404).send({
+        message: 'Institution not found'
+      })
+    }
+    res.json(user)
+  } catch (err) {
+    return res.status(404).send({
+      message: err.message
+    })
+  }
+}
+
 const addInstitution = async (req, res, next) => {
   const newInstitution = new Institution({
     name: req.body.name,
@@ -72,6 +89,7 @@ const deleteInstitution = async (req, res, next) => {
   }
 }
 
+router.get('/name/:id', getInstitutionsByNamne)
 router.get('/', getAll)
 router.get('/:id', getInstitutionsByID)
 router.post('/', addInstitution)
