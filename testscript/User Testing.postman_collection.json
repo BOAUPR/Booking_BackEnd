@@ -163,8 +163,29 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjViYWYyYjJmOTE4YzBlMDEyZTc2ZjUiLCJ1c2VybmFtZSI6ImxvY2FsYWRtaW4xQG1haWwuY29tIiwiaWF0IjoxNjUwMTc2Njc2LCJleHAiOjE2NTAyNjMwNzZ9.0RpKlCxbEiLXupAkTqR2GbbFpzABoE7qHbuP1CHFCGw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/Ins/625baf2b2f918c0e012e76f1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"Ins",
+								"625baf2b2f918c0e012e76f1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -1760,6 +1781,38 @@
 							"path": [
 								"institution",
 								"62594750edbec1e62add86c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/institution/name/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/institution/name/วิทยาศาสตร์การแพทย์",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"institution",
+								"name",
+								"วิทยาศาสตร์การแพทย์"
 							]
 						}
 					},
