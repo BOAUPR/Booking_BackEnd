@@ -1,12 +1,26 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
+const Institution = require('../models/Institution')
 const { ROLE } = require('../constant.js')
 
 const getAll = async (req, res, next) => {
   try {
-    const users = await User.find({}).populate('institution').exec()
+    const users = await User.find({ $or: [{ roles: ROLE.USER }, { roles: ROLE.APPROVER }, { roles: ROLE.ADMIN }] }).populate('institution').exec()
     res.status(200).json(users)
+  } catch (err) {
+    return res.status(500).send({
+      message: err.message
+    })
+  }
+}
+const getAllIns = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const users = await User.findById(id).exec()
+    const insUser = await User.find({ $or: [{ institution: users.institution, roles: ROLE.USER }, { institution: users.institution, roles: ROLE.APPROVER }] }).populate('institution').exec()
+    console.log(users)
+    res.status(200).json(insUser)
   } catch (err) {
     return res.status(500).send({
       message: err.message
@@ -40,6 +54,23 @@ const getApproveresByID = async (req, res, next) => {
       })
     }
     res.json(approveres)
+  } catch (err) {
+    return res.status(404).send({
+      message: err.message
+    })
+  }
+}
+
+const getInstitutionByID = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const institution = await Institution.find({ users: id }).exec()
+    if (institution === null) {
+      return res.status(404).send({
+        message: 'Institution not found'
+      })
+    }
+    res.json(institution[0].name)
   } catch (err) {
     return res.status(404).send({
       message: err.message
@@ -132,7 +163,9 @@ const deleteUser = async (req, res, next) => {
 }
 router.get('/approveres', getApproveres)
 router.get('/approveres/:id', getApproveresByID)
+router.get('/institution/:id', getInstitutionByID)
 router.get('/', getAll)
+router.get('/Ins/:id', getAllIns)
 router.get('/:id', getUserByID)
 router.post('/', addUser)
 router.put('/:id', updateUser)
