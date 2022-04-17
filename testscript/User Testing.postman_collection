@@ -31,7 +31,7 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "admin1@mail.com",
+									"value": "localadmin1@mail.com",
 									"type": "text"
 								},
 								{
@@ -80,7 +80,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5ODQ4Yzk0NGU1YTQwMGQ1ZDEyZTQiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAzNzkwOCwiZXhwIjoxNjUwMTI0MzA4fQ.3yRRIaHR3AJBxmzU78sHeFGdCyXxQQEQwvwlG_MDASc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjViYWYyYjJmOTE4YzBlMDEyZTc2ZjUiLCJ1c2VybmFtZSI6ImxvY2FsYWRtaW4xQG1haWwuY29tIiwiaWF0IjoxNjUwMTc2Njc2LCJleHAiOjE2NTAyNjMwNzZ9.0RpKlCxbEiLXupAkTqR2GbbFpzABoE7qHbuP1CHFCGw",
 									"type": "string"
 								}
 							]
@@ -96,6 +96,75 @@
 								"users"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxODY1MCwiZXhwIjoxNjUwMTA1MDUwfQ.__gprFSYTAZBmymp2pzt3av-OQTY61Tr6Pp_GPpNx78\"",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/users/625937f70694ac82da01ccce",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"625937f70694ac82da01ccce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/Ins/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200\", function() {\r",
+									"    pm.response.to.have.status(200)\r",
+									"})  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				},
@@ -197,7 +266,7 @@
 					"response": []
 				},
 				{
-					"name": "/users/:id",
+					"name": "/users/institution/:id",
 					"event": [
 						{
 							"listen": "test",
@@ -211,34 +280,28 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU5NDc1MGVkYmVjMWU2MmFkZDg2YzYiLCJ1c2VybmFtZSI6ImFkbWluMUBtYWlsLmNvbSIsImlhdCI6MTY1MDAxODY1MCwiZXhwIjoxNjUwMTA1MDUwfQ.__gprFSYTAZBmymp2pzt3av-OQTY61Tr6Pp_GPpNx78\"",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjViYWYyYjJmOTE4YzBlMDEyZTc2ZjUiLCJ1c2VybmFtZSI6ImxvY2FsYWRtaW4xQG1haWwuY29tIiwiaWF0IjoxNjUwMTc2Njc2LCJleHAiOjE2NTAyNjMwNzZ9.0RpKlCxbEiLXupAkTqR2GbbFpzABoE7qHbuP1CHFCGw",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
-						},
 						"url": {
-							"raw": "{{url}}/users/625937f70694ac82da01ccce",
+							"raw": "{{url}}/users/institution/625baf2b2f918c0e012e76f3",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"625937f70694ac82da01ccce"
+								"institution",
+								"625baf2b2f918c0e012e76f3"
 							]
 						}
 					},
